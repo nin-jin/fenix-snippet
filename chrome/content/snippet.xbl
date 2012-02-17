@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<bindings
+    xmlns="http://www.mozilla.org/xbl"
+    xmlns:xbl="http://www.mozilla.org/xbl"
+    xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    >
+  
+    <binding
+        id="button"
+        >
+        
+        <content>
+            <xul:toolbarbutton
+                xbl:inherits=" xbl:text=weather "
+                tooltiptext="А что за погода за окном?"
+                oncommand="openWeather()"
+            />
+        </content>
+        
+        <implementation>
+            
+            <field name="$core"> Components.utils.import( 'resource://snippet/snippet/core.jsm', {} ).core </field>
+            
+            <constructor>
+                this.$core.addClient( this )
+            </constructor>
+            
+            <destructor>
+                this.$core.dropClient( this )
+            </destructor>
+            
+            <property name="weather">
+                <getter>
+                    this.getAttribute( 'weather' )
+                </getter>
+                <setter>
+                    this.setAttribute( 'weather', val )
+                </setter>
+            </property>
+            
+            <method name="openWeather">
+                <body>
+                    this.$core.openWeatherBy( this )
+                </body>
+            </method>
+            
+        </implementation>
+        
+    </binding>
+  
+</bindings>

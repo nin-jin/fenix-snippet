@@ -1,0 +1,12 @@
+content snippet chrome/content/
+resource fenix fenix/ 
+resource snippet ./
+
+overlay chrome://browser/content/browser.xul chrome://snippet/content/browser.xul
+
+#resource   yasearch-mod    modules/
+#resource   yasearch-app    cbapp/
+#resource   yasearch-ftab   jar:chrome/yasearch.jar!/content/ftab/
+#
+#content    yasearch        jar:chrome/yasearch.jar!/content/
+#

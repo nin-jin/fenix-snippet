@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<overlay
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    id="snippet-overlay"
+    >
+    
+    <toolbar id="nav-bar">
+        
+        <toolbarbutton
+            id="snippet-button"
+            style=" -moz-binding: url( 'chrome://snippet/content/snippet.xbl#button' ) "
+        />
+        
+    </toolbar>
+    
+</overlay>
