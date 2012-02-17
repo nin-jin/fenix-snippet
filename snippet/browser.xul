@@ -8,7 +8,7 @@
         
         <toolbarbutton
             id="snippet-button"
-            style=" -moz-binding: url( 'chrome://snippet/content/snippet.xbl#button' ) "
+            style=" -moz-binding: url( 'resource://snippet/snippet/view.xbl#button' ) "
         />
         
     </toolbar>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <bindings
     xmlns="http://www.mozilla.org/xbl"
     xmlns:xbl="http://www.mozilla.org/xbl"
@@ -14,7 +14,9 @@
                 xbl:inherits=" xbl:text=weather "
                 tooltiptext="А что за погода за окном?"
                 oncommand="openWeather()"
-            />
+                >
+                Окно
+            </xul:toolbarbutton>
         </content>
         
         <implementation>

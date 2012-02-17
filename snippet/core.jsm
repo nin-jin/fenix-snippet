@@ -1,5 +1,5 @@
 "use strict"
-Components.utils.import( 'resource://fenix/this.jsm' )
+Components.utils.import( 'resource://snippet/fenix/this.jsm' )
 
 let $snippet= $()
 let $fenix= $( '../fenix/' )
