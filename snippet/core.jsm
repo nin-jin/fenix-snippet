@@ -7,35 +7,38 @@ let $fenix= $( '../fenix/' )
 let core= new function( ){
     
     
-    let allClients= $fenix.ProxyMap()
+    let allViews= $fenix.ProxyMap()
     
-    this.addClient= function( client ){
-        allClients.add( client )
-        if( allClients.list.length > 1 ) return this
+    this.addView= function( client ){
+        allViews.add( client )
+        if( allViews.list.length > 1 ) return this
         
         this.autoRefresher().runAsync()
         return this
     }
     
-    this.dropClient= function( client ){
-        allClients.drop( client )
+    this.dropView= function( client ){
+        allViews.drop( client )
     }
     
     
     let weatherSource= $fenix.Uri.fromString( 'http://export.yandex.ru/weather/' )
-    let refreshPeriod= 60 * 60 * 1000
     
     this.autoRefresher= $fenix.FiberThread( function( ){
         
-        while( allClients.list.length ){
-            
-            let response= yield $fenix.Dom.fromResource( weatherSource )
-            let temperature= response.select(' // temperature / text() ')
-            let condition= response.select(' weather_type / text() ')
-            
-            allClients.map.weather= [ temperature, condition ].join( ', ' )
-            yield $fenix.FiberSleep( refreshPeriod )
-            
+        while( allViews.count() ){
+            try {
+                
+                var response= yield $fenix.Dom.fromResource( weatherSource )
+                var temperature= response.select(' // temperature / text() ')
+                var condition= response.select(' // weather_type / text() ')
+                allViews.map.weather= [ temperature, condition ].join( ', ' )
+                yield $fenix.FiberSleep( 60 * 60 * 1000 )
+                
+            } catch( exception ){
+                allViews.map.weather= '>__<'
+                yield $fenix.FiberSleep( 5 * 60 * 1000 )
+            }
         }
         
     } )

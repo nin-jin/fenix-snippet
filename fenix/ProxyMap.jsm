@@ -31,9 +31,9 @@ let ProxyMap= $fenix.Factory( new function ProxyMap_proto( ){
         return this
     }
     
-    this.empty=
-    function isEmpty( ){
-        return !this.list.length
+    this.count=
+    function count( ){
+        return this.list.length
     }
     
     function get( proxy, name ){

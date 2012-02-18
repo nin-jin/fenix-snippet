@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <bindings
     xmlns="http://www.mozilla.org/xbl"
     xmlns:xbl="http://www.mozilla.org/xbl"
@@ -24,11 +24,11 @@
             <field name="$core"> Components.utils.import( 'resource://snippet/snippet/core.jsm', {} ).core </field>
             
             <constructor>
-                this.$core.addClient( this )
+                this.$core.addView( this )
             </constructor>
             
             <destructor>
-                this.$core.dropClient( this )
+                this.$core.dropView( this )
             </destructor>
             
             <property name="weather">
