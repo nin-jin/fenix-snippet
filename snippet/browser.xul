@@ -6,7 +6,7 @@
     
     <toolbar id="nav-bar">
         
-        <toolbarbutton
+        <toolbaritem
             id="snippet-button"
             style=" -moz-binding: url( 'resource://snippet/snippet/view.xbl#button' ) "
         />
