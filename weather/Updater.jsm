@@ -21,8 +21,6 @@ var Updater= $fenix.FiberThread( function( ){
             weather.summary= [ weather.temperature, weather.condition ].join( ', ' )
             weather.tooltip= ''
             
-            $weather.Core.all.map.refreshClient()
-            
             var delay= 60 * 60 * 1000
             
         } catch( exception ){
@@ -35,11 +33,11 @@ var Updater= $fenix.FiberThread( function( ){
             weather.summary= '>_<'
             weather.tooltip= String( exception )
             
-            $weather.Core.all.map.refreshClient()
-            
             var delay= 5 * 60 * 1000
             
         }
+        
+        $weather.Core.all.map.refreshClient()
         
         yield $fenix.FiberSleep( delay )
         
