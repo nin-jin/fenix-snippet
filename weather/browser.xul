@@ -4,13 +4,13 @@
     id="snippet-overlay"
     >
     
-    <toolbar id="nav-bar">
+    <toolbarpalette id="BrowserToolbarPalette">
         
         <toolbaritem
-            id="snippet-button"
-            style=" -moz-binding: url( 'resource://snippet/snippet/view.xbl#button' ) "
+            id="snippet-weather"
+            style=" -moz-binding: url( 'resource://snippet/weather/View.xbl#weather' ) "
         />
         
-    </toolbar>
+    </toolbarpalette>
     
 </overlay>
