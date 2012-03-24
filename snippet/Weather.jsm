@@ -48,13 +48,13 @@ let Weather= $fenix.Factory( new function( ){
             
             try {
                 
-                var response= yield $fenix.Dom.fromResource( weatherSource )
+                var weatherDom= yield $fenix.Dom.fromResource( weatherSource )
                 
-                var temperature= response.select(' / weather / temperature / text() ')
-                var condition= response.select(' / weather / weather_type / text() ')
+                var temperature= String( weatherDom.select(' / weather / temperature / text() ') )
+                var condition= String( weatherDom.select(' / weather / weather_type / text() ') )
                 this.summary= [ temperature, condition ].join( ', ' )
                 
-                this.image= response.select(' / weather / image2 / text() ')
+                this.image= $fenix.Uri.fromString( weatherDom.select(' / weather / image2 / text() ') )
                 this.tooltip= ''
                 
                 var delay= 60 * 60 * 1000
