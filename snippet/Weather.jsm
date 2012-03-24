@@ -8,11 +8,8 @@ let Weather= $fenix.Factory( new function( ){
     
     this.client= null
     
-    this.temperature= ''
-    this.image= ''
-    this.condition= ''
-    
     this.summary= ''
+    this.image= ''
     this.tooltip= ''
     
     this.all= $fenix.ProxyMap()
@@ -34,10 +31,8 @@ let Weather= $fenix.Factory( new function( ){
     
     
     this.refreshClient= function( ){
-        this.client.temperature= this.temperature
-        this.client.image= this.image
-        this.client.condition= this.condition
         this.client.summary= this.summary
+        this.client.image= this.image
         this.client.tooltip= this.tooltip
     }
     
@@ -55,10 +50,11 @@ let Weather= $fenix.Factory( new function( ){
                 
                 var response= yield $fenix.Dom.fromResource( weatherSource )
                 
-                this.temperature= response.select(' / weather / temperature / text() ')
-                this.condition= response.select(' / weather / weather_type / text() ')
+                var temperature= response.select(' / weather / temperature / text() ')
+                var condition= response.select(' / weather / weather_type / text() ')
+                this.summary= [ temperature, condition ].join( ', ' )
+                
                 this.image= response.select(' / weather / image2 / text() ')
-                this.summary= [ this.temperature, this.condition ].join( ', ' )
                 this.tooltip= ''
                 
                 var delay= 60 * 60 * 1000
@@ -67,10 +63,8 @@ let Weather= $fenix.Factory( new function( ){
                 
                 $fenix.fail( exception )
                 
-                this.temperature= ''
-                this.condition= ''
-                this.image= 'data:,'
                 this.summary= '>_<'
+                this.image= 'data:,'
                 this.tooltip= String( exception )
                 
                 var delay= 5 * 60 * 1000

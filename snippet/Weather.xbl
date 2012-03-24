@@ -33,23 +33,13 @@
             <destructor> this.core= this.core.destroy() </destructor>
             
             <property
-                name="image"
-                onset=" this.setAttribute( 'image', val ) "
-            />
-            
-            <property
-                name="temperature"
-                onset=" this.setAttribute( 'temperature', val ) "
-            />
-            
-            <property
-                name="constructor"
-                onset=" this.setAttribute( 'constructor', val ) "
-            />
-            
-            <property
                 name="summary"
                 onset=" this.setAttribute( 'summary', val ) "
+            />
+            
+            <property
+                name="image"
+                onset=" this.setAttribute( 'image', val ) "
             />
             
             <property
