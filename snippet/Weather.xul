@@ -8,7 +8,7 @@
         
         <toolbaritem
             id="snippet-weather"
-            style=" -moz-binding: url( 'resource://snippet/weather/View.xbl#weather' ) "
+            style=" -moz-binding: url( 'resource://snippet/snippet/Weather.xbl#Weather' ) "
         />
         
     </toolbarpalette>

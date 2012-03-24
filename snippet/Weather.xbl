@@ -6,7 +6,7 @@
     >
   
     <binding
-        id="weather"
+        id="Weather"
         >
         
         <content>
@@ -26,10 +26,10 @@
             
             <field name="$"> Components.utils.import( 'resource://fenix/this.jsm', {} ).$ </field>
             <field name="$fenix"> this.$( '../fenix/' ) </field>
-            <field name="$weather"> this.$() </field>
+            <field name="$snippet"> this.$() </field>
             
             <field name="core" />
-            <constructor> this.core= new this.$weather.Core( this ) </constructor>
+            <constructor> this.core= new this.$snippet.Weather( this ) </constructor>
             <destructor> this.core= this.core.destroy() </destructor>
             
             <property
