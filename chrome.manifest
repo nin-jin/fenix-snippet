@@ -1,4 +1,4 @@
-resource snippet .
-resource fenix fenix
+resource snippet ./
+resource fenix ./fenix/
 
 overlay chrome://browser/content/browser.xul resource://snippet/snippet/Weather.xul
