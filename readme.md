@@ -24,8 +24,8 @@
 
 Рядом также нужно положить файл "chrome.manifest" с примерно таким содержимым:
 
-    resource snippet .
-    resource fenix fenix
+    resource snippet ./
+    resource fenix ./fenix/
     overlay chrome://browser/content/browser.xul resource://snippet/snippet/Weather.xul
 
 В первой строчке мы указываем, что все наши файлы будут доступны внутри браузера по ссылкам, начинающимся с "resource://snippet/". Вторая означает, что фреймворк fenix будет лежать в одноимённой папке. Ну а в третьей мы расширяем браузер нашим оверлеем, воспользовавшись такой ссылкой.
